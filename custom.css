@@ -1,0 +1,448 @@
+/* add your custom css here */
+
+* {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-height: 1280px;
+    color: #3b3b3b;
+    background-color: blue;
+    font-size: 24px;
+  }
+  
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  a {
+    margin-left: 60px;
+    font-weight: 400;
+  }
+
+  h1 {
+    font-size:7em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 0, 136);
+    text-align: left;
+    left: 60px;
+    margin-top: 30px;
+    border-color: black;
+    border-width: 3px;
+  }
+
+  h2 {
+    font-size:7em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: whitesmoke;
+    text-align: left;
+    margin-left: 41rem;
+    margin-top: 30px;
+  }
+
+  p {
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: left;
+    margin-left: 20px;
+  }
+
+  code3 {
+    font-family: 'Georgia', monospace;
+    background-color: lightgreen;
+    font-size: 1.4rem;
+    ;
+  }
+
+  code4 {
+    font-family: 'Georgia', monospace;
+    color: #f0394f;
+    font-size: 1.4rem;
+    ;
+  }
+
+  code5 {
+    font-family: 'Georgia', monospace;
+    color: limeGreen;
+    font-size: 1.4rem;
+   
+  }
+
+  code6 {
+    font-family: 'Georgia', monospace;
+    color: #08a045;
+    font-size: 1.4rem;
+    
+  }
+
+  code7 {
+    font-family: 'Georgia', monospace;
+    background-color: #d9ed92;
+    font-size: 1.4rem;
+   
+  }
+
+  code8 {
+    font-family: 'Georgia', monospace;
+    background-color: #ff5719;
+    font-size: 1.4rem;
+    
+  }
+
+  code14 {
+    font-family: 'Georgia', monospace;
+    color: #e76052;
+    font-size: 1.4rem;
+    
+  }
+
+  code9 {
+    font-family: 'Georgia', monospace;
+    color: #ff6685;
+    font-size: 1.4rem;
+  }
+
+  code10 {
+    font-family: 'Georgia', monospace;
+    color: #2d82b8;
+    font-size: 1.4rem;
+  }
+
+  code11 {
+    color: #9794ff;
+    font-size: 1.4rem;
+    font-family: 'Georgia', monospace;
+  }
+
+  code12 {
+    color: #ff006e;
+    font-size: 1.4rem;
+    font-family: 'Georgia', monospace;
+  }
+
+  code13 {
+    color: #3a86ff;
+    font-size: 1.4rem;
+    font-family: 'Georgia', monospace;
+  }
+  
+  a,
+  a:visited,
+  a:hover {
+    color: teal;
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+  }
+  
+  nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background: papayawhip;
+    padding: 1rem;
+    padding-right: 5rem;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  
+  .nav__examples {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  
+  .nav__examples > * {
+    margin-right: 0.5rem;
+  }
+
+
+
+  
+  
+  #intro {
+    max-width: max-content;
+    width: 100%;
+    height: 100vh; /* This will make it take up the full height of the viewport */
+    box-sizing: border-box; /* This ensures padding does not affect the width */
+    margin: 0rem auto;
+    text-align: center;
+  }
+  
+  .intro__hed {
+    font-size: 2em;
+    margin: 2rem auto 0.5rem auto;
+  }
+  
+  .intro__dek {
+    color: #8a8a8a;
+  }
+  
+  #intro {
+    margin: 0;
+    margin-right: 0;
+    background-color: blue;
+  }
+  
+  #outro {
+    height: 640px;
+  }
+  
+  @media (min-width: 840px) {
+    .nav__examples {
+      margin-top: 0;
+      margin-left: 2rem;
+    }
+  }
+
+#my-svg-chart, svg {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    background-color: whitesmoke;
+}
+#my-svg-chart g {
+    pointer-events: all;
+    cursor: pointer;
+    background-color: olivedrab;
+
+}
+
+#my-svg-chart text {
+    display: none;
+    background-color: olivedrab;
+    
+}
+
+#my-svg-chart .show text {
+    display: block;
+    background-color: olivedrab;
+}
+
+#my-illustration, svg {
+    background-color: olivedrab;
+}
+
+#my-illustration, g {
+    background-color: olivedrab;
+}
+
+#first-gif {
+  position: absolute;
+  top: 250px;
+  left: 800px;
+  width: 200px;
+  
+}
+
+#gif2 {
+  position: absolute;
+  top: 400px;
+  left: 800px;
+  width: 100px;
+  
+}
+
+#gif3 {
+  position: absolute;
+  top: 250px;
+  left: 300px;
+  width: 100px;
+  
+}
+
+
+#caption {
+  position: absolute;
+  bottom: 30px;
+  left: 1100px;
+  transform: translate(-50%, -50%);
+  background-color: greenyellow;
+  color: deeppink;
+  padding: 5px;
+}
+
+#byline {
+  position: absolute;
+  top: 300px;
+  left: 600px;
+  transform: translate(-50%, -50%);
+  background-color: greenyellow;
+  padding: 5px;
+}
+
+
+/* THIS IS FROM SCROLLAMA 1*/
+
+#scrolly1 {
+  position: relative;
+  background-color: greenyellow;
+  padding: 1rem;
+
+}
+
+article {
+  position: relative;
+  padding: 0;
+  max-width: 20rem;
+  margin: 0 auto;
+}
+
+.sticky-thing1 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  background-color: greenyellow;
+  z-index: 0;
+  top: 12.5vh;
+  height: 90vh;
+  /* Center everything inside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticky-thing1 p {
+  font-size: 8rem;
+  font-weight: 900;
+  color: blue;
+}
+
+.step1 {
+  color: #fff;
+  
+  border-radius: 15px;
+  width: 200%;
+  justify-content: center;
+  position: relative; /* Position relative to its normal position */
+  left: 50%; /* Move right to 50% of the container's width */
+  transform: translateX(-50%);
+  margin-bottom: 15em;
+  
+  
+}
+
+.step1:last-child {
+  margin-bottom: 100vh;
+  border-radius: 15px;
+}
+
+.step1.is-active p {
+  background-color: deeppink;
+  color: greenyellow;
+  border-radius: 15px;
+}
+
+.step1 p {
+  text-align: center;
+  padding: 1rem;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.5rem;
+  background-color: deeppink;
+  color: greenyellow;
+  border-radius: 15px;
+  
+}
+
+
+
+
+/* THIS IS FROM SCROLLAMA 2*/
+
+#scrolly2 {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: whitesmoke;
+    padding: 1rem;
+  }
+
+
+  #scrolly2 > * {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+
+  article {
+    position: relative;
+    padding: 0 1rem;
+    max-width: 20rem;
+    color: deeppink
+  }
+
+  .sticky-thing2 {
+    position: -webkit-sticky;
+    position: sticky;
+    width: 100%;
+    margin: 0;
+    background-color: whitesmoke;
+    z-index: 0;
+    top: 12.5vh;
+    height: 75vh;
+    /* Center everything inside */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sticky-thing2 p {
+    padding: 1rem;
+    font-size: 8rem;
+    font-weight: 900;
+    color: deeppink;
+  }
+
+  .step2 {
+    margin: 0 auto 10rem auto;
+    background-color: mistyrose;
+    color: black;
+    border-radius: 15px;
+    top: 20vh;
+  }
+
+
+
+  .step2:last-child {
+    margin-bottom: 100vh;
+    background-color: mistyrose;
+    color: black;
+  }
+
+  .step2.is-active {
+    background-color: mistyrose;
+    color: black;
+  }
+
+  .step2 p {
+    text-align: left;
+    padding: 1rem;
+    font-size: 1.4rem;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: black;
+  }

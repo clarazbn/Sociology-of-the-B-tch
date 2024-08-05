@@ -1,0 +1,359 @@
+<!doctype html>
+<html>
+  <head>
+
+    <!-- some basic stuff  -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sociology of the Bitch</title>
+
+    <!-- 
+      add your stylesheet 
+      base.css loads the basic stuff
+      you can tweak your css in custom.css
+      WARNING: the order of the stylesheets matters
+    -->
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="custom.css">
+
+    <!-- add your d3 script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
+
+
+    <!-- add Scrollama -->
+    <script src="https://unpkg.com/scrollama"></script>
+ 
+  </head>
+
+  <body>
+    <main>
+      
+      <section id="intro" style="width: 100%; height: 100vh;">
+        <h1>Sociology of the B*TCH!</h1>
+        <img id=first-gif src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTI1cXBlNzA4M2cwdWxpMzZjcXcweWdsMXE0bGYzaTNzYzBidXhlMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/iOkUHCfF1ZwXruxfvD/giphy.gif">
+        <div id="caption">by clara zimban</div>
+        
+       
+      </section>
+    
+      <section id="scrolly1">
+        <div class="sticky-thing1"></div>
+
+        <article>
+          <div class="step1" data-step="1">
+            <p>Words hold considerable power in society; they are vehicles for emotions, can enforce power dynamics, break people or mend them back together.</p>
+          </div>
+          <div class="step1" data-step="2">
+            <p>Not all words are created equal, though. Some carry such deeply sensitive meanings that they can distort the matrix of the social world.</p>
+          </div>
+          <div class="step1" data-step="3">
+            <p>The b-word is one of those special linguistic phenomena.</p>
+          </div>
+          <div class="step1" data-step="5">
+            <p>Originally referring to a female dog, the meaning of the term shifted in the 1400s when people started to use it to refer to lewd or immoral women.</p>
+          </div>
+          <div class="step1" data-step="5">
+            <p>Today, 'bitch' is a key word in popular culture that can convey contrasting meanings and intentions.</p>
+          </div>
+          <div class="step1" data-step="6">
+            <p>In this project, I investigate the meaning of the word across a repertoire of over a thousand movie scripts ranging from the 1980s to the 2020s.</p>
+          </div>
+         
+        </article>
+      </section>
+        
+      
+    
+
+      <section id="scrolly2">
+        <article>
+          <div class="step2" data-step="1">
+            <p>The word bitch was used to refer to a woman 1226 times. In this graph, each square represents one of those occurences. <code10>57% of the time, it was a man speaking.</code10></p>
+          </div>
+          <div class="step2" data-step="2">
+            <p>1 out of 5 times, women used the word in a non offensive way to <code6>neutrally or positively</code6> refer to another woman or <code5>themselves</code5>. This is something male characters rarely did.</p>
+          </div>
+          <div class="step2" data-step="3">
+            <p>Male characters used 'bitch' as an offensive term to describe or talk to a woman <code11>three times more</code11> than female characters did.</p>
+          </div>
+          <div class="step2" data-step="4">
+            <p>I categorized offensive uses of the word 'bitch' in three levels of offence - <code3>disrespectful</code3>, <code7>hurtful</code7>, and <code8>threatening</code8>.</p>
+          </div>
+          <div class="step2" data-step="5">
+            <p>When female characters used the word bitch as an offensive term toward another female character, they framed the word in a threatening sentence <code4>only 2 % of the time.</code4></p>
+          </div>
+          <div class="step2" data-step="6">
+            <p>Male characters, in contrast, were 12 times more likely to use the b-word in a <code4>threatening</code4> sentence which often led to an outburst of physical violence.</p>
+          </div>
+          
+        </article>
+
+      
+        
+        <div class="sticky-thing2">
+          <svg id="my-svg-chart" width="960" height="500"></svg>
+        </div>
+        
+        <script>
+          // Define showGender in the global scope
+          
+          
+        
+          // Load your data with d3.csv()
+          d3.csv("datad3.csv").then(data => {
+            // Select the SVG chart
+            const myChart = d3.select('#my-svg-chart');
+            
+            // Define grid size and gap between grid cells
+            const gridSize = 17, gap = 2;
+            
+            // Set the SVG dimensions
+            const svgWidth = 960; // Adjust as needed
+            const svgHeight = 500; // Adjust as needed
+        
+            // Calculate the number of columns and rows
+            const cols = Math.floor(svgWidth / (gridSize + gap));
+            const rows = Math.floor(svgHeight / (gridSize + gap));
+        
+            // Bind data to rectangles and set their attributes
+            const individualCharts = myChart
+              .selectAll('rect')
+              .data(data)
+              .join('rect')
+              .attr('x', (d, i) => (i % cols) * (gridSize + gap))
+              .attr('y', (d, i) => Math.floor(i / cols) * (gridSize + gap))
+              .attr('width', gridSize)
+              .attr('height', gridSize)
+              .style('fill', 'lightgrey');
+        
+            // Assign the showGender function
+            showGender = function() {
+              individualCharts
+                .attr('x', (d, i) => (i % cols) * (gridSize + gap))
+                .attr('y', (d, i) => Math.floor(i / cols) * (gridSize + gap))
+                .attr('width', gridSize)
+                .attr('height', gridSize)
+                .transition()
+                .duration(1000)
+                .style('fill', d => {
+                  if (d.gender == 'F') { return 'hotpink'; }
+                  else if (d.gender == 'M') { return '#2d82b8'; }
+                });
+            };
+
+            // Assign the showGender function
+            showNeutral = function() {
+              individualCharts
+                .attr('x', (d, i) => (i % cols) * (gridSize + gap))
+                .attr('y', (d, i) => Math.floor(i / cols) * (gridSize + gap))
+                .attr('width', gridSize)
+                .attr('height', gridSize)
+                .transition()
+                .duration(1000)
+                .style('fill', d => {
+                  if (d.type == 'positive') { return '#08a045'; }
+                  else if (d.type == 'neutral') { return '#08a045'; }
+                  else if (d.type == 'self') { return 'LimeGreen'; }
+                  else if (d.gender == 'M') { return 'lightblue';}
+                  else if (d.gender == 'F') { return 'pink';}
+                });
+            };
+
+            showOffensive = function() {
+              individualCharts
+                .attr('x', (d, i) => (i % cols) * (gridSize + gap))
+                .attr('y', (d, i) => Math.floor(i / cols) * (gridSize + gap))
+                .attr('width', gridSize)
+                .attr('height', gridSize)
+                .transition()
+                .duration(1000)
+                .style('fill', d => {
+                  if (d.offensive == 'OF') { return '#ff94c7'; }
+                  else if (d.offensive == 'OM') { return '#9794ff'; }
+                  else if (d.type == 'neutral') { return '#b1e0c6';}
+                  else if (d.type == 'positive') { return '#b1e0c6';}
+                  else if (d.type == 'self') { return '#b1e0c6';}
+                });
+            };
+
+            showClear = function() {
+              individualCharts
+                .attr('x', (d, i) => (i % cols) * (gridSize + gap))
+                .attr('y', (d, i) => Math.floor(i / cols) * (gridSize + gap))
+                .attr('width', gridSize)
+                .attr('height', gridSize)
+                .transition()
+                .duration(1000)
+                .style('fill', d => {
+                  if (d.offensive == 'OF') { return 'lightgrey'; }
+                  else if (d.offensive == 'OM') { return 'lightgrey'; }
+                  else if (d.gender == 'M') { return 'lightgrey';}
+                  else if (d.gender == 'F') { return 'lightgrey';}
+
+                });
+              };
+
+              showWomen = function() {
+              individualCharts
+                .attr('x', (d, i) => (i % cols) * (gridSize + gap))
+                .attr('y', (d, i) => Math.floor(i / cols) * (gridSize + gap))
+                .attr('width', gridSize)
+                .attr('height', gridSize)
+                .transition()
+                .duration(1000)
+                .style('fill', d => {
+                  if (d.gender == 'M') { return 'lightblue'; }
+                  else if (d.type == '1') { return 'LightGreen'; }
+                  else if (d.type == '2') { return '#d9ed92'; }
+                  else if (d.type == '3') { return '#f0394f'; }
+                  else if (d.gender == 'F') { return 'pink'; }
+                  
+                
+
+                });
+              };
+
+              showMenred = function() {
+              individualCharts
+                .attr('x', (d, i) => (i % cols) * (gridSize + gap))
+                .attr('y', (d, i) => Math.floor(i / cols) * (gridSize + gap))
+                .attr('width', gridSize)
+                .attr('height', gridSize)
+                .transition()
+                .duration(1000)
+                .style('fill', d => {
+                  if (d.type == '3') { return '#f0394f'; }
+                  else if (d.gender == 'F') { return 'pink'; }
+                  else if (d.gender == 'M') { return 'lightblue'; }
+                  
+
+                });
+              };
+
+              
+
+              
+          
+        
+          });
+        
+        </script>
+        
+                 
+    </section>
+
+      <section id="outro"></section>
+    </main>
+
+    <!-- <div class='debug'></div> -->
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script>
+      // using d3 for convenience
+var main = document.querySelector("main");
+var scrolly1 = main.querySelector("#scrolly1");
+var sticky1 = scrolly1.querySelector(".sticky-thing1"); // Corrected selector
+var steps1 = d3.selectAll('.step1');
+
+// initialize the scrollama for the first scrolly
+var scroller1 = scrollama();
+
+// scrollama event handlers for the first scrolly
+function handleStepEnter(response) {
+  // response = { element, direction, index }
+  var el = response.element;
+
+  // remove is-active from all steps then add is-active to this step
+  steps1.each(function() {
+    d3.select(this).classed('is-active', false);
+  });
+  d3.select(el).classed('is-active', true);
+
+  // update graphic based on step
+  sticky1.querySelector("p").innerText = el.dataset.step1;
+}
+
+function init1() {
+  scroller1
+    .setup({
+      step: "#scrolly1 .step1",
+      offset: 0.33,
+      debug: false
+    })
+    .onStepEnter(handleStepEnter);
+
+  window.addEventListener("resize", scroller1.resize);
+}
+
+init1();
+
+// using d3 for convenience for the second scrolly
+var scrolly2 = main.querySelector("#scrolly2");
+var sticky2 = scrolly2.querySelector(".sticky-thing2"); // Corrected selector
+var steps2 = d3.selectAll('.step2');
+
+// initialize the scrollama for the second scrolly
+var scroller2 = scrollama();
+         
+
+// scrollama event handlers for the second scrolly
+function handleStepEnter2(response) {
+  // response = { element, direction, index }
+  var el = response.element;
+
+  // remove is-active from all steps then add is-active to this step
+  steps2.each(function() {
+    d3.select(this).classed('is-active', false);
+  });
+  d3.select(el).classed('is-active', true);
+
+  // update graphic based on step
+  if (response.index == 0) {
+    showGender(); 
+    makeAnnotations();
+    
+  }
+
+  if (response.index == 1) {
+    showNeutral(); 
+  }
+
+  if (response.index == 2) {
+    showOffensive(); 
+  }
+
+  if (response.index == 3) {
+    showGender(); 
+  }
+
+  if (response.index == 4) {
+    showWomen(); 
+  }
+
+  if (response.index == 5) {
+    showMenred(); 
+  }
+
+  
+}
+
+function init2() {
+  scroller2
+    .setup({
+      step: "#scrolly2 .step2",
+      offset: 0.33,
+      debug: false
+    })
+    .onStepEnter(handleStepEnter2);
+
+  window.addEventListener("resize", scroller2.resize);
+}
+
+init2();
+
+    
+    </script>
+  </body>
+</html>
